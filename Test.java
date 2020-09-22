@@ -1,51 +1,20 @@
-package Pack1;
+package Pack2;
 
 public class Test {
     public static void main(String[] args) {
-        Shape s1 = new Circle(5.5, "RED", false);
-        System.out.println(s1);
-        System.out.println(s1.getArea());
-        System.out.println(s1.getPerimeter());
-        System.out.println(s1.getColor());
-        System.out.println(s1.isFilled());
-        // System.out.println(s1.getRadius());//Методы, что отсутствуют в абстрактном классе не могут функционировать
-        Circle c1 = (Circle)s1;
-        System.out.println(c1);
-        System.out.println(c1.getArea());
-        System.out.println(c1.getPerimeter());
-        System.out.println(c1.getColor());
-        System.out.println(c1.isFilled());
-        System.out.println(c1.getRadius());
-        //Shape s2 = new Shape(); //нельзя создать объект абстрактного класса
-        Shape s3 = new Rectangle(1.0, 2.0, "RED", false);
-        System.out.println(s3);
-        System.out.println(s3.getArea());
-        System.out.println(s3.getPerimeter());
-        System.out.println(s3.getColor());
-        // System.out.println(s3.getLength()); //Методы, что отсутствуют в абстрактном классе не могут функционировать
-        Rectangle r1 = (Rectangle)s3;
-        System.out.println(r1);
-        System.out.println(r1.getArea());
-        System.out.println(r1.getColor());
-        System.out.println(r1.getLength());
-        Shape s4 = new Square(6.6);
-        System.out.println(s4);
-        System.out.println(s4.getArea());
-        System.out.println(s4.getColor());
-        //System.out.println(s4.getSide()); //Методы, что отсутствуют в абстрактном классе не могут функционировать
-
-        Rectangle r2 = (Rectangle)s4;
-        System.out.println(r2);
-        System.out.println(r2.getArea());
-        System.out.println(r2.getColor());
-        //System.out.println(r2.getSide()); // такого метода нет в Rectangle
-        System.out.println(r2.getLength());
-
-        Square sq1 = (Square)r2;
-        System.out.println(sq1);
-        System.out.println(sq1.getArea());
-        System.out.println(sq1.getColor());
-        System.out.println(sq1.getSide());
-        System.out.println(sq1.getLength());
+        MovablePoint dot = new MovablePoint(0, 0, 13, 13);
+        System.out.println(dot);
+        dot.moveDown();
+        System.out.println(dot);
+        MovableCircle okr = new MovableCircle(0,0, 14, 14, 5);
+        System.out.println(okr);
+        okr.moveUp();
+        System.out.println(okr);
+        MovableRectangle sqr = new MovableRectangle(0, 0, 12, 6, 5, 6);
+        System.out.println(sqr);
+        sqr.moveRight();
+        System.out.println(sqr);
+        sqr.moveLeft();
+        System.out.println(sqr);
     }
 }
