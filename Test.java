@@ -1,30 +1,56 @@
-package Pack1;
-
-import java.util.ArrayList;
-import java.util.List;
+package Task2;
 
 public class Test {
-    private static void test(IWaitList<Integer> list) {
-        for (int i = 0; i < 10; i++) {
-            list.add(i + 1);
-        }
-        System.out.println(list);
-        System.out.println("contains 1: " + list.contains(1));
-        System.out.println("contains 7: " + list.contains(7));
-        System.out.println("remove first: " + list.remove());
-        System.out.println("is empty: " + list.isEmpty());
-        List<Integer> test = new ArrayList<>();
-        test.add(3);
-        test.add(4);
-        test.add(5);
-        System.out.println("contains test-list: " + list.containsAll(test));
-        System.out.println();
+    public static void main(String[] args) {
+        Queue queueOne = new ArrayQueue();
+
+        System.out.println("Array");
+        fill(queueOne);
+        dump(queueOne);
+        System.out.println("__________________");
+        fill(queueOne);
+        clear(queueOne);
+        System.out.println("__________________");
+        fill(queueOne);
+        getArray(queueOne);
+
+        System.out.println("\n__________________");
+
+        Queue queueTwo = new LinkedQueue();
+
+        System.out.println("Linked");
+        fill(queueTwo);
+        dump(queueTwo);
+        System.out.println("__________________");
+        fill(queueTwo);
+        clear(queueTwo);
+        System.out.println("__________________");
+        fill(queueTwo);
+        getArray(queueTwo);
+
     }
 
-    public static void main(String[] args) {
-        IWaitList<Integer> boundedWaitList = new BoundedWaitList<>(10);
-        IWaitList<Integer> unfairWaitList = new UnfairWaitList<>();
-        test(boundedWaitList);
-        test(unfairWaitList);
+    public static void fill(Queue queue) {
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+        }
+    }
+
+    public static void dump(Queue queue) {
+        while (!queue.isEmpty()) {
+            System.out.println(queue.size() + " " + queue.element() + " " + queue.dequeue());
+        }
+    }
+
+    public static void getArray(Queue queue) {
+        Object[] arr = queue.toArray();
+        for (Object o : arr) {
+            System.out.print(o + " ");
+        }
+    }
+
+    public static void clear(Queue queue) {
+        queue.clear();
+        System.out.println("Queue is empty? " + queue.isEmpty());
     }
 }
