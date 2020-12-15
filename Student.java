@@ -1,31 +1,35 @@
 package Pack1;
 
-public class Student implements Comparable<Student>{
-    String Name = "IVAN";
-    int endScore = 0;
-    Student(/*int iDNumer,*/ String Name, int endScore){
-        //this.iDNumber = iDNumer;
-        this.Name = Name;
-        this.endScore = endScore;
-    }
-    public int getendScore(){
-        return endScore;
+import java.util.Comparator;
+
+public class Student implements Comparable<Student> {
+    private final int GPA;
+    private final String name;
+
+    public Student(int GPA, String name) {
+        this.GPA = GPA;
+        this.name = name;
     }
 
-    public void setEndScore(int endScore) {
-        this.endScore = endScore;
+    public int getGPA() {
+        return GPA;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int compareTo(Student obj)
+    {
+        return Integer.compare(this.GPA, obj.GPA);
+    }
+
+    @Override
     public String toString() {
-        String inf;
-        inf = "Name: "+Name+" EndScore: "+endScore;
-        return inf;
+        return "Student{" +
+                "GPA=" + GPA +
+                ", name='" + name + '\'' +
+                '}';
     }
-
-    //@Override
-    public int compareTo(Student o) {
-        return endScore-o.getendScore();
-    }
-
 }
-//sort?
